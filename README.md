@@ -1,5 +1,7 @@
 # subglacial-precipitates
 
+(work in progress)
+
 Supplementary materials, results files and code for subglacial precipitate metagenomics paper. 
 
 You might be looking for subglacial_combined.tsv, a file output from bamdam containing all the read counts and damage values for all the taxonomic nodes for all samples in gtdb, after decontaminating on the negative controls. This has all taxonomic nodes with at least 50 reads across samples. 
