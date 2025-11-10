@@ -1,3 +1,5 @@
+Note: I still gotta clean this up and upload new files before submission! 
+
 # The ancient subglacial precipitate microbiome
 
 Supplementary materials, results files and code for subglacial precipitate metagenomics paper. 
