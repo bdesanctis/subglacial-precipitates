@@ -1,10 +1,10 @@
-Note: I still gotta clean this up and upload new files before submission! 
+Note: very much still in progress
 
 # The ancient subglacial precipitate microbiome
 
 Supplementary materials, results files and code for subglacial precipitate metagenomics paper. 
 
-Many intermediate and output data files are hosted at https://sid.erda.dk/cgi-sid/ls.py?share_id=ja4s4j1Swa and code scripts are on this github in the code folder. 
+Many intermediate and output data files are hosted at (add link) and code scripts are on this github in the code folder. 
 Note that there is also raw data for a new sequencing round, new_subglacial_raw_data_250730, and associated metadata in the same folder, which has not been processed yet. 
 
 Raw data is on the erda under fq/raw. In the folders excluding new_subglacial_raw_data_250730, we have 1.12 billion raw reads across the 30 non-control libraries covering 26 unique samples, and 61 million raw reads across the 5 controls. From the raw files, I merged lanes, then ran fastp and sga for QC (see code/1-qc.sh). I then removed reads which mapped against some common contaminants, and merged libraries from the same rock in cases where it made sense. The resulting "clean" fastqs are in fq/mapped_to_contams_merged. 
