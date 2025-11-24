@@ -1,0 +1,20 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/MCycDB_2021_2 -q S28_unmappedhpcc_contig.fa -o S28_unmappedhpcc_contig_MCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_124	A0A381KF42	69.9	349	101	3	1043	3	5	351	3.17e-164	469
+contig-100_322	WP_072046326.1_[gene=gpmI,souce=NCBI_bacteria_refseq]	65.0	337	113	3	1013	3	235	566	4.06e-141	417
+contig-100_554	WP_063938045.1_[gene=eno,souce=NCBI_bacteria_refseq]	98.9	275	3	0	825	1	139	413	2.28e-189	528
+contig-100_832	WP_063938392.1_[gene=glyA,souce=NCBI_bacteria_refseq]	99.6	225	1	0	3	677	71	295	1.60e-158	448
+contig-100_1023	WP_063938947.1_[gene=ackA,souce=NCBI_bacteria_refseq]	99.5	198	1	0	1	594	43	240	6.57e-139	396
+contig-100_1157	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	60.1	183	73	0	1	549	515	697	8.82e-69	229
+contig-100_1227	59538.XP_005975482.1_[description=frmA_ontology=COG1062_source=eggNOG]	62.6	179	64	1	530	3	50	228	4.89e-70	226
+contig-100_1322	1232427.CAVS020000018_gene1625_[description=gpmB_ontology=COG0406_source=eggNOG]	100	168	0	0	506	3	18	185	4.72e-115	327
+contig-100_1636	1232427.CAVS020000039_gene980_[description=fbaA_ontology=COG0191_source=eggNOG]	100	147	0	0	3	443	154	300	5.46e-101	295
+contig-100_1787	A0A2X1S637	71.9	114	32	0	421	80	325	438	2.10e-49	166
+contig-100_2061	1305732.JAGG01000001_gene774_[description=metF_ontology=COG0685_source=eggNOG]	68.7	131	35	1	379	5	808	938	3.45e-51	176
+contig-100_2071	1203566.HMPREF1285_01467_[description=frmA_ontology=COG1062_source=eggNOG]	81.7	126	23	0	378	1	233	358	1.04e-70	218
+contig-100_2241	6334.EFV56367_[description=mdh-K00024_ontology=COG0039_source=eggNOG]	61.9	118	44	1	3	353	148	265	3.83e-40	144
+contig-100_2262	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	69.5	118	36	0	1	354	257	374	2.34e-48	167
+contig-100_2406	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	60.2	113	44	1	339	1	705	816	3.82e-39	141
+contig-100_2533	345219.Bcoa_0653_[description=mdh-K00024_ontology=COG0039_source=eggNOG]	63.1	103	38	0	2	310	89	191	3.88e-42	142
+contig-100_2777	1305732.JAGG01000001_gene774_[description=metF_ontology=COG0685_source=eggNOG]	65.0	100	34	1	1	297	948	1047	2.72e-36	132

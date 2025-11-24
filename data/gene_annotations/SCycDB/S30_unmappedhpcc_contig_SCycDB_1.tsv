@@ -1,0 +1,7 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/SCycDB_2020Mar_2 -q S30_unmappedhpcc_contig.fa -o S30_unmappedhpcc_contig_SCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_5223	srw:TUE45_01813_[description=betB_ontology=K00130_source=KEGG]	74.8	111	28	0	1	333	105	215	6.40e-53	175
+contig-100_5248	1122138.AQUZ01000112_gene3269_[description=prpE_ontology=COG0365_source=eggNOG]	84.7	111	17	0	2	334	375	485	5.94e-63	204
+contig-100_5707	1463881.KL591011_gene2811_[description=dmdC_ontology=COG1960_source=eggNOG]	66.0	106	36	0	318	1	249	354	2.20e-42	145
+contig-100_6361	467200.ACFA01000737_gene1904_[description=dmdC_ontology=COG1960_source=eggNOG]	65.0	100	35	0	300	1	9	108	1.58e-39	137

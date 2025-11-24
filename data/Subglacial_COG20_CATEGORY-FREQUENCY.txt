@@ -1,0 +1,25 @@
+key	LG4_Nitrospinota_MAG    BV2_Nocardioide_MAG 	COG20_CATEGORY
+func_bac2b81d6dca	106	302	Amino acid transport and metabolism
+func_1b633918a880	155	215	Translation, ribosomal structure and biogenesis
+func_77a00c6ec521	69	113	Posttranslational modification, protein turnover, chaperones
+func_da30c79beefb	66	184	General function prediction only
+func_d21c85918fa5	79	211	Energy production and conversion
+func_95fc416dc03e	55	202	Transcription
+func_bbb139d10577	106	233	Coenzyme transport and metabolism
+func_4c4954b51dd7	56	122	Signal transduction mechanisms
+func_82218812e84b	29	52	Cell cycle control, cell division, chromosome partitioning
+func_1ef97f3006f4	17	38	Intracellular trafficking, secretion, and vesicular transport
+func_b3e8ef7030cc	53	97	Nucleotide transport and metabolism
+func_9474d29a3303	23	13	Cell motility
+func_0494b8962fa6	56	184	Carbohydrate transport and metabolism
+func_80e01991869a	85	163	Replication, recombination and repair
+func_4e897cc8c1fb	35	96	Function unknown
+func_b61131c58812	57	130	Inorganic ion transport and metabolism
+func_490347fd3d43	127	148	Cell wall/membrane/envelope biogenesis
+func_eb3db804a3d1	9	45	Secondary metabolites biosynthesis, transport and catabolism
+func_07dd5e4a5345	54	108	Defense mechanisms
+func_5accc2b69ec1	47	237	Lipid transport and metabolism
+func_d1873b248dd7	2	0	Cytoskeleton
+func_339fc8f5337c	16	45	Mobilome: prophages, transposons
+func_e2c0924d736c	0	2	Extracellular structures
+func_1b577ddc8adb	0	1	RNA processing and modification

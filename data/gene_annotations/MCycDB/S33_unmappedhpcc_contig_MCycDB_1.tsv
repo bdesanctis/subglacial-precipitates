@@ -1,0 +1,45 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/MCycDB_2021_2 -q S33_unmappedhpcc_contig.fa -o S33_unmappedhpcc_contig_MCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_419	340344622_[description=acs_ontology=arCOG01529_source=arCOG]	84.5	278	43	0	836	3	8	285	6.19e-175	499
+contig-100_450	A0A1F6DLK6	90.9	219	20	0	2	658	202	420	1.26e-139	402
+contig-100_515	A0A388QJV3	96.1	257	10	0	773	3	93	349	8.77e-177	495
+contig-100_614	34506.g5057_[description=metF_ontology=COG0685_source=eggNOG]	61.0	200	60	3	2	601	573	754	6.51e-71	238
+contig-100_749	329765836_[description=fpoL_ontology=arCOG01539_source=arCOG]	92.9	224	16	0	672	1	359	582	1.23e-144	422
+contig-100_765	A0A554JFF9	74.4	223	56	1	1	666	43	265	1.12e-117	343
+contig-100_852	329765802_[description=eno_ontology=arCOG01169_source=arCOG]	91.1	213	19	0	1	639	52	264	8.20e-137	392
+contig-100_972	WP_092000683.1_[gene=mdh-K00024,souce=NCBI_bacteria_refseq]	95.5	200	9	0	1	600	129	328	5.23e-127	363
+contig-100_1148	WP_107890047.1_[gene=glyA,souce=NCBI_bacteria_refseq]	62.6	187	66	1	563	3	7	189	3.92e-70	228
+contig-100_1264	34506.g5057_[description=metF_ontology=COG0685_source=eggNOG]	76.3	169	40	0	1	507	480	648	1.76e-91	294
+contig-100_1298	91790511_[description=mtkA_ontology=COG0045_source=COG]	92.8	181	13	0	546	4	148	328	4.78e-114	332
+contig-100_1374	340344426_[description=apgM_ontology=arCOG01696_source=arCOG]	92.6	176	13	0	5	532	225	400	3.91e-112	328
+contig-100_1498	329765835_[description=fpoN_ontology=arCOG01540_source=arCOG]	92.4	172	13	0	3	518	243	414	3.09e-100	300
+contig-100_1661	329765836_[description=fpoL_ontology=arCOG01539_source=arCOG]	97.0	166	5	0	498	1	106	271	2.32e-110	331
+contig-100_2070	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	66.2	151	51	0	3	455	540	690	4.67e-62	208
+contig-100_2090	WP_141976470.1_[gene=mdh-K00024,souce=NCBI_archaea_refseq]	91.1	124	11	0	84	455	1	124	3.61e-74	226
+contig-100_2156	34506.g5057_[description=metF_ontology=COG0685_source=eggNOG]	65.6	151	48	3	450	1	933	1080	4.50e-48	168
+contig-100_2329	1459636.NTE_03553_[description=glyA_ontology=COG0112_source=eggNOG]	62.5	120	45	0	436	77	322	441	2.84e-47	160
+contig-100_2453	392389841_[description=hdrD_ontology=COG0247_source=COG]	63.1	141	51	1	4	423	21	161	1.88e-64	199
+contig-100_3018	1229780.BN381_250102_[description=acdA_ontology=COG1960_source=eggNOG]	75.8	132	31	1	1	393	3	134	5.34e-72	223
+contig-100_3170	1265502.KB905940_gene2955_[description=hprA_ontology=COG0111_source=eggNOG]	74.2	128	33	0	387	4	116	243	1.15e-62	197
+contig-100_3250	227086.JGI_V11_50818_[description=folA_ontology=COG0262_source=eggNOG]	60.9	128	47	1	2	385	368	492	1.98e-49	167
+contig-100_3312	1280954.HPO_18879_[description=acdA_ontology=COG1960_source=eggNOG]	66.1	127	43	0	2	382	129	255	3.05e-51	168
+contig-100_3524	407464138_[description=fpoN_ontology=arCOG01540_source=arCOG]	95.2	124	6	0	373	2	120	243	7.78e-79	243
+contig-100_3820	1128421.JAGA01000003_gene3005_[description=mtkA_ontology=COG0045_source=eggNOG]	60.0	120	47	1	3	359	246	365	5.58e-40	139
+contig-100_4019	WP_109041823.1_[gene=eno,souce=NCBI_bacteria_refseq]	79.5	117	24	0	353	3	244	360	3.21e-60	192
+contig-100_4262	6334.EFV56367_[description=mdh-K00024_ontology=COG0039_source=eggNOG]	66.4	113	38	0	342	4	389	501	1.34e-40	145
+contig-100_4348	A0A521VL01	88.5	113	13	0	3	341	382	494	2.29e-69	221
+contig-100_4605	340344185_[description=eno_ontology=arCOG01169_source=arCOG]	94.6	111	6	0	3	335	297	407	3.18e-64	202
+contig-100_4657	56478186_[description=fpoK_ontology=COG0713_source=COG]	81.2	101	19	0	6	308	1	101	2.75e-48	152
+contig-100_4702	1162668.LFE_1688_[description=fpoM_ontology=COG1008_source=eggNOG]	67.6	108	35	0	326	3	74	181	8.34e-46	156
+contig-100_4912	WP_114467283.1_[gene=nirK,souce=NCBI_bacteria_refseq]	75.2	109	26	1	1	327	37	144	6.82e-48	158
+contig-100_4948	641149.HMPREF9016_01720_[description=fpoB_ontology=COG0377_source=eggNOG]	63.4	93	28	3	48	326	18	104	2.16e-32	114
+contig-100_5094	433606043_[description=acdA_ontology=COG1960_source=COG]	61.3	106	41	0	2	319	104	209	3.12e-38	134
+contig-100_5233	340345094_[description=fbp_ontology=arCOG04180_source=arCOG]	87.6	89	11	0	319	53	290	378	1.04e-49	164
+contig-100_5457	340345094_[description=fbp_ontology=arCOG04180_source=arCOG]	94.2	104	6	0	1	312	108	211	3.58e-62	196
+contig-100_5531	329765661_[description=nirK_ontology=arCOG03914_source=arCOG]	95.1	103	5	0	3	311	292	394	9.07e-64	202
+contig-100_5562	1122603.ATVI01000009_gene2574_[description=mtkB_ontology=COG0074_source=eggNOG]	75.7	103	25	0	1	309	16	118	1.05e-47	156
+contig-100_5684	6334.EFV56367_[description=mdh-K00024_ontology=COG0039_source=eggNOG]	61.5	104	38	1	1	306	135	238	1.25e-36	133
+contig-100_5767	nid:NPIRD3C_1545_[description=acs_ontology=K01895_source=KEGG]	79.5	83	17	0	1	249	556	638	4.16e-37	134
+contig-100_5866	1122135.KB893167_gene2259_[description=fpoH_ontology=COG1005_source=eggNOG]	69.0	100	31	0	302	3	217	316	2.18e-42	144
+contig-100_6156	61853.ENSNLEP00000015653_[description=acdA_ontology=COG1960_source=eggNOG]	69.7	99	30	0	299	3	273	371	6.30e-42	144

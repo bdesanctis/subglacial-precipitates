@@ -1,0 +1,13 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/MCycDB_2021_2 -q S30_unmappedhpcc_contig.fa -o S30_unmappedhpcc_contig_MCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_2575	A0A0G0UIC4	63.3	150	53	1	458	9	1	148	1.77e-63	206
+contig-100_3209	68199.JNZO01000040_gene4915_[description=acdA_ontology=COG1960_source=eggNOG]	80.7	150	29	0	2	451	212	361	9.98e-77	236
+contig-100_4799	1906.SFRA_29045_[description=mtkA_ontology=COG0045_source=eggNOG]	89.4	113	12	0	353	15	225	337	1.35e-60	192
+contig-100_5097	WP_030577832.1_[gene=narG,souce=NCBI_bacteria_refseq]	89.4	113	11	1	1	339	1041	1152	4.54e-67	221
+contig-100_5203	A0A0G0UIC4	72.3	112	31	0	337	2	257	368	1.42e-53	177
+contig-100_5248	A0A4P7IEJ0	85.6	111	16	0	2	334	368	478	2.13e-63	206
+contig-100_5707	1206731.BAGB01000068_gene7100_[description=acdA_ontology=COG1960_source=eggNOG]	80.2	106	21	0	318	1	248	353	3.86e-54	175
+contig-100_5889	40571.JOEA01000024_gene7358_[description=mcl_ontology=COG2301_source=eggNOG]	76.5	85	20	0	3	257	235	319	7.72e-39	134
+contig-100_6271	A0A4Q5J900	94.1	101	6	0	1	303	53	153	3.23e-60	189
+contig-100_6361	317123539_[description=acdA_ontology=COG1960_source=COG]	78.8	99	21	0	300	4	9	107	1.28e-49	163

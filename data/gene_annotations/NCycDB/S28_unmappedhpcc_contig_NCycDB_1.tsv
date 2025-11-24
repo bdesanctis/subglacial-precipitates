@@ -1,0 +1,43 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/NCyc_100_2 -q S28_unmappedhpcc_contig.fa -o S28_unmappedhpcc_contig_NCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_38	662755.CRES_0764_[description=narC_ontology=COG1290_source=eggNOG]	71.8	507	142	1	1527	10	6	512	5.10e-283	783
+contig-100_127	bf0bd586667ca0e9213148a2002237be_[description=nosZ_homolog_ontology=SS08345_source=m5nr]	84.4	410	64	0	3	1232	162	571	1.78e-261	724
+contig-100_201	7a9b6ec77f7446c5e0f8d6da434383e6_[description=nosZ_homolog_ontology=SS10323_source=m5nr]	99.7	390	1	0	1	1170	297	686	1.49e-261	734
+contig-100_294	525263.HMPREF0298_0137_[description=nirA_ontology=COG0155_source=eggNOG]	87.6	347	43	0	3	1043	52	398	2.12e-226	630
+contig-100_314	525263.HMPREF0298_2218_[description=nmo_homolog_ontology=COG0517_source=eggNOG]	87.9	339	41	0	1027	11	5	343	1.02e-204	573
+contig-100_337	A0A077HRE5	92.8	332	24	0	997	2	24	355	5.57e-230	641
+contig-100_441	4116be437da9fa3c0bcd3a246959dca0_[description=gdh_K15371_homolog_ontology=SS17100_source=m5nr]	66.0	303	99	2	5	907	111	411	2.00e-129	392
+contig-100_472	191fc24e5420172a12bf0a87d2917841_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	71.1	253	72	1	20	778	21	272	2.54e-121	375
+contig-100_477	191fc24e5420172a12bf0a87d2917841_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	71.6	292	83	0	1	876	316	607	4.79e-142	429
+contig-100_524	A0A077HRE5	96.5	228	8	0	1	684	413	640	2.00e-161	465
+contig-100_657	bb6c69cb5d60e72e24f9db2788147463_[description=glnA_ontology=SS23108_source=m5nr]	99.5	217	1	0	757	107	228	444	4.40e-154	438
+contig-100_679	7a9b6ec77f7446c5e0f8d6da434383e6_[description=nosZ_homolog_ontology=SS10323_source=m5nr]	84.4	250	37	2	1	750	95	342	9.17e-134	401
+contig-100_895	d62cd41c53f126b45754c7627e45433d_[description=nosZ_homolog_ontology=SS22539_source=m5nr]	70.6	218	62	1	2	649	25	242	2.16e-90	278
+contig-100_940	9b9fdd62c6604966114c4e3b29c43d64_[description=ureB_homolog_ontology=SS15895_source=m5nr]	71.0	217	57	1	634	2	415	631	8.84e-109	332
+contig-100_1009	e3316168061e006d7e9674f74fc879e1_[description=ureB_homolog_ontology=SS20334_source=m5nr]	97.9	187	4	0	2	562	279	465	3.35e-119	348
+contig-100_1189	e3a8187a40607091fea9f345a5ec16c7_[description=nmo_homolog_ontology=SS18717_source=m5nr]	60.3	179	71	0	3	539	273	451	6.17e-59	200
+contig-100_1307	f6aff9ec9612507891be67eb2649d7f0_[description=nirS_homolog_ontology=SS24700_source=m5nr]	61.8	170	64	1	1	510	144	312	2.40e-64	202
+contig-100_1569	525263.HMPREF0298_1744_[description=nifH_homolog_ontology=COG1192_source=eggNOG]	88.1	151	18	0	455	3	140	290	1.12e-91	271
+contig-100_1611	99833dd3d0d22c1e18c36304c151f722_[description=ureB_homolog_ontology=SS20334_source=m5nr]	69.6	148	45	0	445	2	192	339	1.32e-64	205
+contig-100_1638	525264.HMPREF0305_10572_[description=nirS_homolog_ontology=COG0513_source=eggNOG]	70.3	148	43	1	444	4	140	287	1.26e-60	195
+contig-100_1662	23af3cec2cad1304f7c32d2b6a2c3987_[description=nirB_homolog_ontology=SS25005_source=m5nr]	80.9	136	26	0	409	2	1	136	1.77e-73	221
+contig-100_1724	585529.HMPREF0291_11420_[description=glnA_homolog_ontology=COG0468_source=eggNOG]	97.9	143	3	0	431	3	93	235	2.99e-90	269
+contig-100_1730	f71fd1527f52389ce846c64f7fbb3e51_[description=nosZ_homolog_ontology=SS13798_source=m5nr]	74.8	131	33	0	396	4	13	143	4.05e-58	182
+contig-100_1838	7a9b6ec77f7446c5e0f8d6da434383e6_[description=nosZ_homolog_ontology=SS10323_source=m5nr]	97.1	138	4	0	415	2	738	875	8.35e-82	259
+contig-100_1879	525263.HMPREF0298_0137_[description=nirA_ontology=COG0155_source=eggNOG]	88.9	135	15	0	407	3	414	548	3.10e-83	256
+contig-100_1899	4116be437da9fa3c0bcd3a246959dca0_[description=gdh_K15371_homolog_ontology=SS17100_source=m5nr]	60.4	139	46	2	14	403	425	563	1.58e-47	165
+contig-100_1956	191fc24e5420172a12bf0a87d2917841_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	86.5	133	17	1	396	1	965	1097	3.79e-71	232
+contig-100_2035	5ecaccd2d4237b7fa7497159647d92ea_[description=gdh_K00262_ontology=SS19035_source=m5nr]	100	127	0	0	3	383	39	165	9.50e-93	276
+contig-100_2038	188626.HMPREF0321_2310_[description=nirK_homolog_ontology=COG0448_source=eggNOG]	61.2	129	48	1	382	2	91	219	3.78e-44	150
+contig-100_2226	6e301ac65e8b82fbabb4fe03984a38b5_[description=nosZ_homolog_ontology=SS22539_source=m5nr]	71.2	118	34	0	2	355	141	258	4.90e-53	169
+contig-100_2241	435848972_[description=gdh_K00261_homolog_ontology=COG0443_source=COG]	60.2	118	46	1	3	356	123	239	1.87e-43	152
+contig-100_2245	4cb2efbca1e235bfacebfbbe7a6d6d42_[description=glnA_ontology=SS23108_source=m5nr]	100	118	0	0	355	2	73	190	9.16e-83	251
+contig-100_2254	553174.HMPREF0659_A6111_[description=nosZ_homolog_ontology=COG0031_source=eggNOG]	64.4	118	42	0	2	355	49	166	3.33e-44	148
+contig-100_2358	435848972_[description=gdh_K00261_homolog_ontology=COG0443_source=COG]	66.7	114	38	0	4	345	281	394	3.27e-44	154
+contig-100_2546	698964.CDPW8_1441_[description=glnA_homolog_ontology=COG0468_source=eggNOG]	89.7	107	11	0	1	321	232	338	4.96e-64	200
+contig-100_2622	188626.HMPREF0321_2310_[description=nirK_homolog_ontology=COG0448_source=eggNOG]	65.2	89	26	1	314	63	259	347	1.05e-32	119
+contig-100_2646	256831939_[description=nifH_homolog_ontology=COG2151_source=COG]	61.7	94	36	0	285	4	243	336	5.70e-29	109
+contig-100_2656	553207.HMPREF0299_7398_[description=nirA_homolog_ontology=COG0175_source=eggNOG]	78.8	104	22	0	1	312	155	258	3.04e-57	179
+contig-100_2662	5ecaccd2d4237b7fa7497159647d92ea_[description=gdh_K00262_ontology=SS19035_source=m5nr]	100	103	0	0	311	3	306	408	6.41e-68	212
+contig-100_2763	435848972_[description=gdh_K00261_homolog_ontology=COG0443_source=COG]	69.0	100	29	2	299	3	20	118	5.84e-36	130

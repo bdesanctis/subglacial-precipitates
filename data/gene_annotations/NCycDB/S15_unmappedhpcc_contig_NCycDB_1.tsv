@@ -1,0 +1,22 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/NCyc_100_2 -q S15_unmappedhpcc_contig.fa -o S15_unmappedhpcc_contig_NCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_48	L7WU89	100	201	0	0	3	605	1294	1494	8.43e-128	394
+contig-100_52	350688.Clos_0484_[description=nosZ_homolog_ontology=COG0085_source=eggNOG]	74.3	183	47	0	35	583	719	901	2.99e-88	283
+contig-100_63	a6d30e5fa132e80e847efaa05716ce4a_[description=nirS_homolog_ontology=SS17072_source=m5nr]	78.7	188	40	0	2	565	399	586	4.20e-97	296
+contig-100_100	596319.STAWA0001_0371_[description=nosZ_homolog_ontology=COG0542_source=eggNOG]	100	164	0	0	492	1	247	410	7.12e-105	320
+contig-100_129	L7WU89	100	152	0	0	2	457	798	949	5.03e-97	307
+contig-100_166	596319.STAWA0001_2407_[description=nmo_homolog_ontology=COG0517_source=eggNOG]	100	143	0	0	3	431	25	167	4.51e-91	274
+contig-100_205	A0A0U0E340	100	137	0	0	3	413	280	416	7.70e-91	274
+contig-100_209	78045040_[description=nirB_homolog_ontology=COG0007_source=COG]	63.2	117	43	0	62	412	8	124	3.75e-51	165
+contig-100_227	U5UR69	100	135	0	0	3	407	209	343	2.69e-93	278
+contig-100_240	a3c0f60686a98246a13ffd81f35745b5_[description=nosZ_homolog_ontology=SS24393_source=m5nr]	70.5	132	39	0	398	3	321	452	9.90e-60	194
+contig-100_277	167629386_[description=nirS_homolog_ontology=COG0465_source=COG]	74.8	127	32	0	1	381	268	394	1.68e-61	200
+contig-100_290	L7WT24	99.2	126	1	0	2	379	86	211	1.96e-84	254
+contig-100_313	222151115_[description=nosZ_homolog_ontology=COG0595_source=COG]	74.8	123	31	0	3	371	285	407	1.41e-59	194
+contig-100_321	aa6eedff40841be817b2119fd7ab15cb_[description=nmo_homolog_ontology=SS14056_source=m5nr]	91.0	122	11	0	366	1	32	153	2.04e-80	243
+contig-100_339	a8d3afdab85dae3bed36d1bc2bcf8466_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	83.1	118	20	0	3	356	1027	1144	2.65e-59	198
+contig-100_469	b694a5c0d996acadc66f5c23f49ceb40_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	66.4	107	36	0	1	321	569	675	1.12e-39	142
+contig-100_489	L7WU89	100	108	0	0	324	1	962	1069	1.27e-64	213
+contig-100_507	39946.BGIOSGA040035-PA_[description=nosZ_homolog_ontology=COG1219_source=eggNOG]	69.2	104	32	0	313	2	165	268	2.16e-44	154
+contig-100_590	f5347cebe1e5d35d8abc09edb051d8f5_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	96.0	101	4	0	2	304	145	245	4.57e-58	187

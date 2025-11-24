@@ -1,0 +1,16 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/MCycDB_2021_2 -q S26_unmappedhpcc_contig.fa -o S26_unmappedhpcc_contig_MCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_760	468059.AUHA01000002_gene13_[description=acdA_ontology=COG1960_source=eggNOG]	89.3	140	15	0	1	420	139	278	3.84e-84	254
+contig-100_966	WP_091111335.1_[gene=narH,souce=NCBI_bacteria_refseq]	98.4	125	2	0	5	379	335	459	9.30e-81	249
+contig-100_1163	WP_092636762.1_[gene=ackA,souce=NCBI_bacteria_refseq]	66.7	99	33	0	299	3	71	169	4.35e-39	137
+contig-100_1178	121611018_[description=acdA_ontology=COG1960_source=COG]	70.1	117	35	0	1	351	32	148	1.21e-54	177
+contig-100_1229	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	67.0	115	38	0	2	346	67	181	2.01e-43	153
+contig-100_1268	337280280_[description=fpoL_ontology=COG1009_source=COG]	89.4	113	12	0	342	4	126	238	2.68e-62	203
+contig-100_1365	124265588_[description=acs_ontology=COG0365_source=COG]	89.2	111	12	0	1	333	302	412	2.29e-66	213
+contig-100_1411	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	74.3	109	28	0	3	329	252	360	2.87e-50	172
+contig-100_1426	296591.Bpro_2805_[description=fdhA_ontology=COG3383_source=eggNOG]	86.2	109	15	0	329	3	71	179	2.04e-58	195
+contig-100_1465	A0A1A9GJP3	60.8	97	28	1	326	66	60	156	2.27e-29	110
+contig-100_1793	91776406_[description=fpoH_ontology=COG1005_source=COG]	64.9	97	34	0	13	303	19	115	9.59e-36	126
+contig-100_1803	82995.CR62_09135_[description=glyA_ontology=COG0112_source=eggNOG]	70.0	100	30	0	2	301	605	704	7.99e-44	154
+contig-100_1851	1123504.JQKD01000002_gene3841_[description=acdB_ontology=COG1960_source=eggNOG]	82.8	99	17	0	3	299	46	144	2.70e-50	169

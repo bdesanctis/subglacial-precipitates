@@ -1,0 +1,24 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/NCyc_100_2 -q S23_unmappedhpcc_contig.fa -o S23_unmappedhpcc_contig_NCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_1256	296132462_[description=napA_homolog_ontology=COG3383_source=COG]	62.5	280	104	1	2	841	264	542	1.82e-110	341
+contig-100_1785	83588978_[description=nirS_homolog_ontology=COG0465_source=COG]	63.9	238	85	1	716	3	309	545	1.75e-105	320
+contig-100_4266	260893780_[description=nosZ_homolog_ontology=COG0542_source=COG]	60.0	150	59	1	20	469	77	225	7.04e-54	184
+contig-100_5831	20808693_[description=nosZ_homolog_ontology=COG0542_source=COG]	67.4	138	44	1	3	416	617	753	4.78e-50	172
+contig-100_7270	1009370.ALO_08755_[description=nirK_homolog_ontology=COG3283_source=eggNOG]	64.3	126	45	0	1	378	271	396	6.66e-49	165
+contig-100_7396	L7VIT7	64.5	107	38	0	372	52	316	422	5.77e-43	147
+contig-100_7474	c10c39469139ce4eee44aa9c2294c095_[description=nmo_homolog_ontology=SS05325_source=m5nr]	72.6	124	34	0	374	3	23	146	2.39e-58	184
+contig-100_7989	16aa8b89e39ccb028f84c7118c6f026e_[description=nosZ_homolog_ontology=SS11615_source=m5nr]	73.1	119	32	0	362	6	506	624	4.10e-57	189
+contig-100_8181	555088.DealDRAFT_0480_[description=glnA_ontology=COG0174_source=eggNOG]	71.4	119	34	0	357	1	127	245	1.47e-58	188
+contig-100_8331	83588978_[description=nirS_homolog_ontology=COG0465_source=COG]	70.5	112	33	0	338	3	148	259	2.87e-46	159
+contig-100_9223	afc17bed3bf2f6cca12e87be51205cdd_[description=nirS_homolog_ontology=SS17072_source=m5nr]	68.8	112	34	1	5	340	331	441	1.48e-44	154
+contig-100_9330	312137267_[description=nirK_homolog_ontology=COG0399_source=COG]	62.9	105	39	0	22	336	94	198	3.87e-40	138
+contig-100_9586	632518.Calow_0005_[description=nirS_homolog_ontology=COG0187_source=eggNOG]	60.9	92	35	1	3	275	487	578	3.21e-28	109
+contig-100_9740	521459547_[description=nirK_homolog_ontology=COG2204_source=COG]	61.8	110	42	0	3	332	191	300	4.58e-39	137
+contig-100_10053	C5A1Q6	66.1	109	37	0	1	327	7	115	2.03e-47	152
+contig-100_10462	591157.SSLG_03775_[description=nirS_homolog_ontology=COG0465_source=eggNOG]	79.2	106	22	0	320	3	153	258	1.02e-49	169
+contig-100_10745	38d9782eb1affff55ee8a3d60466ab6e_[description=nmo_homolog_ontology=SS14056_source=m5nr]	62.6	91	34	0	40	312	182	272	1.99e-35	129
+contig-100_10803	53642ba925ef8ec0f888df015d778a78_[description=nosZ_homolog_ontology=SS22539_source=m5nr]	60.8	97	36	1	34	318	6	102	4.33e-35	123
+contig-100_11271	451757.AC7_2580_[description=nmo_ontology=COG0517_source=eggNOG]	75.7	103	25	0	2	310	250	352	1.02e-47	160
+contig-100_11483	1cb2112328f0fd60151d4c4270dfd989_[description=nosZ_homolog_ontology=SS22539_source=m5nr]	71.8	103	29	0	1	309	96	198	8.17e-45	152
+contig-100_12299	I6ZA66	60.5	81	32	0	56	298	3	83	2.87e-28	107

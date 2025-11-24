@@ -1,0 +1,19 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/NCyc_100_2 -q S17_unmappedhpcc_contig.fa -o S17_unmappedhpcc_contig_NCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_233	350688.Clos_0484_[description=nosZ_homolog_ontology=COG0085_source=eggNOG]	64.4	385	137	0	1	1155	756	1140	7.24e-172	514
+contig-100_627	430751860_[description=nirS_homolog_ontology=COG0187_source=COG]	67.4	193	60	1	1	570	437	629	2.01e-81	256
+contig-100_714	351605.Gura_3955_[description=nosZ_homolog_ontology=COG0542_source=eggNOG]	72.6	179	49	0	3	539	168	346	1.48e-83	265
+contig-100_762	575590.HMPREF0156_01870_[description=asnB_homolog_ontology=ENOG410XPCH_source=eggNOG]	60.7	163	64	0	524	36	70	232	3.07e-70	214
+contig-100_843	340099.Teth39_0342_[description=nosZ_homolog_ontology=COG0542_source=eggNOG]	61.8	157	59	1	494	27	594	750	3.33e-54	185
+contig-100_1070	99833dd3d0d22c1e18c36304c151f722_[description=ureB_homolog_ontology=SS20334_source=m5nr]	62.5	136	47	2	1	408	212	343	2.60e-48	162
+contig-100_1252	b9de1e2bae9ccb7d9cd96fa9d15964fa_[description=nirS_homolog_ontology=SS22182_source=m5nr]	72.2	133	37	0	3	401	189	321	3.14e-59	190
+contig-100_1347	324057.Pjdr2_0006_[description=nirS_homolog_ontology=COG0187_source=eggNOG]	60.0	130	52	0	390	1	305	434	2.77e-42	149
+contig-100_1527	430760747_[description=glnA_homolog_ontology=COG0468_source=COG]	77.0	122	28	0	1	366	108	229	2.45e-58	185
+contig-100_1578	9b9fdd62c6604966114c4e3b29c43d64_[description=ureB_homolog_ontology=SS15895_source=m5nr]	60.0	120	48	0	360	1	418	537	2.17e-48	167
+contig-100_1760	1502c2cbdf9b9dcf1a2f7ae3dfde3702_[description=gdh_K00262_ontology=SS19035_source=m5nr]	99.1	114	1	0	342	1	246	359	5.69e-73	225
+contig-100_1794	313679015_[description=glnA_homolog_ontology=COG0468_source=COG]	68.0	103	33	0	28	336	5	107	5.63e-41	140
+contig-100_1882	86543c8fef91d729b0021d15d2c1b46f_[description=nmo_homolog_ontology=SS14056_source=m5nr]	62.0	100	36	2	302	3	243	340	5.93e-28	108
+contig-100_2188	b6d8c9be593b0b0bbb1afafc69d6c2ee_[description=nmo_homolog_ontology=SS14056_source=m5nr]	64.7	102	36	0	1	306	17	118	3.08e-42	142
+contig-100_2226	07ff4896af6d8895a4d9327dca67f3a5_[description=gdh_K15371_homolog_ontology=SS17100_source=m5nr]	60.8	102	39	1	304	2	94	195	3.90e-32	120
+contig-100_2240	1cb2112328f0fd60151d4c4270dfd989_[description=nosZ_homolog_ontology=SS22539_source=m5nr]	74.3	101	26	0	3	305	139	239	1.11e-48	162

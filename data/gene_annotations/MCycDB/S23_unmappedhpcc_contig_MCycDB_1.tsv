@@ -1,0 +1,12 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/MCycDB_2021_2 -q S23_unmappedhpcc_contig.fa -o S23_unmappedhpcc_contig_MCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_1256	WP_093882301.1_[gene=fdhA,souce=NCBI_bacteria_refseq]	62.9	280	104	0	2	841	265	544	8.41e-118	361
+contig-100_2065	A0A3C0L6Y0	96.0	198	8	0	73	666	1	198	2.55e-129	374
+contig-100_2127	WP_109133755.1_[gene=mtrA,souce=NCBI_bacteria_refseq]	62.8	196	72	1	633	49	8	203	4.45e-84	252
+contig-100_4854	A0A1F5AA96	91.3	127	11	0	72	452	1	127	5.35e-76	234
+contig-100_9460	451948748_[description=acsD_ontology=COG2069_source=COG]	73.9	111	29	0	336	4	157	267	3.18e-49	169
+contig-100_10038	256370984_[description=glpX_ontology=COG1494_source=COG]	65.1	109	38	0	328	2	14	122	1.63e-46	162
+contig-100_10913	A0A1S9D382	60.0	100	40	0	312	13	75	174	2.53e-26	99.4
+contig-100_11933	ther:Y592_07880_[description=apgM_ontology=K15635_source=KEGG]	61.5	96	37	0	300	13	187	282	3.24e-32	118
+contig-100_12559	374985594_[description=mcl_ontology=COG2301_source=COG]	62.6	99	37	0	297	1	43	141	4.68e-33	123

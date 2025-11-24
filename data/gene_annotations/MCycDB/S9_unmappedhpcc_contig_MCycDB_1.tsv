@@ -1,0 +1,24 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/MCycDB_2021_2 -q S9_unmappedhpcc_contig.fa -o S9_unmappedhpcc_contig_MCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_2237	A0A0G0UIC4	66.3	329	105	3	984	1	178	501	1.89e-157	453
+contig-100_4204	A0A1F6YCR5	73.1	175	47	0	49	573	209	383	7.46e-90	271
+contig-100_4225	A0A2M7Q9F5	78.6	201	40	1	3	596	20	220	1.30e-109	323
+contig-100_4296	A0A0G1HSA9	65.8	196	67	0	610	23	48	243	4.13e-86	266
+contig-100_4306	A0A0G1YK10	66.5	191	64	0	19	591	278	468	1.91e-87	269
+contig-100_5121	A0A2G9ZA13	78.1	155	34	0	465	1	13	167	6.92e-84	255
+contig-100_5254	A0A0G1BMW2	70.1	177	53	0	1	531	100	276	2.72e-81	252
+contig-100_6301	A0A358KMY5	82.6	155	27	0	470	6	31	185	1.82e-90	272
+contig-100_7946	926569.ANT_29920_[description=fdhA_ontology=COG3383_source=eggNOG]	72.2	133	37	0	401	3	503	635	2.75e-58	196
+contig-100_9256	A0A0G0UIC4	69.4	121	37	0	4	366	257	377	5.85e-53	176
+contig-100_10154	1408473.JHXO01000006_gene1403_[description=fbaA_ontology=COG0191_source=eggNOG]	77.2	114	26	0	4	345	18	131	7.17e-56	179
+contig-100_10244	A0A0G0KVM3	82.5	114	20	0	3	344	35	148	7.16e-66	207
+contig-100_10625	6334.EFV56367_[description=mdh-K00024_ontology=COG0039_source=eggNOG]	62.8	113	40	1	336	4	125	237	1.62e-40	145
+contig-100_10851	A0A2M7DNJ0	67.0	109	36	0	330	4	282	390	1.87e-46	156
+contig-100_10994	A0A0G0UIC4	67.0	109	31	2	325	2	85	189	1.15e-36	132
+contig-100_11036	A0A1F7XBS4	60.4	91	36	0	1	273	332	422	1.60e-28	109
+contig-100_11621	1122622.ATWJ01000013_gene177_[description=nirK_ontology=COG2132_source=eggNOG]	80.0	95	17	1	307	29	788	882	1.01e-44	156
+contig-100_12091	A0A1V5P1P9	73.8	103	27	0	309	1	21	123	5.27e-44	145
+contig-100_12541	926569.ANT_24780_[description=fdhB_ontology=COG0437_source=eggNOG]	79.0	100	21	0	1	300	137	236	3.24e-54	171
+contig-100_12610	A0A0G0IC81	62.1	103	25	4	3	299	109	201	1.76e-29	111
+contig-100_12698	A0A0G1YK10	65.0	100	35	0	300	1	22	121	2.01e-40	142

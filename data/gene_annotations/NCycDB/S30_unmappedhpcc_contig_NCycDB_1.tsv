@@ -1,0 +1,18 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/NCyc_100_2 -q S30_unmappedhpcc_contig.fa -o S30_unmappedhpcc_contig_NCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_64	c4ac041f0ef537bae614a5b99e98318c_[description=nirK_homolog_ontology=SS24836_source=m5nr]	89.2	1052	114	0	3810	655	1	1052	0.0	1860
+contig-100_1946	699218.HMPREF0889_1390_[description=nirS_homolog_ontology=COG0187_source=eggNOG]	62.9	205	76	0	3	617	276	480	2.08e-78	248
+contig-100_2401	F8JZT8	75.4	179	44	0	1	537	1162	1340	4.16e-87	281
+contig-100_3297	0cbfc1c084b620639f9f85c08cef5201_[description=gdh_K00261_homolog_ontology=SS18574_source=m5nr]	74.1	147	38	0	444	4	208	354	8.56e-70	216
+contig-100_3897	A1SL38	76.8	138	27	1	400	2	334	471	3.30e-63	202
+contig-100_4069	A0A1H3N780	74.4	129	33	0	1	387	394	522	3.31e-60	196
+contig-100_4453	c5b57feabf52c9234ac74cb7be9b366e_[description=gdh_K15371_homolog_ontology=SS17100_source=m5nr]	71.5	123	35	0	1	369	43	165	1.21e-54	185
+contig-100_4544	114567764_[description=nirK_homolog_ontology=COG0610_source=COG]	80.3	122	24	0	1	366	294	415	7.87e-58	194
+contig-100_4554	d63be27a5cb6ffee7cbaa70998705b92_[description=gdh_K15371_ontology=SS19024_source=m5nr]	66.4	119	40	0	9	365	190	308	7.81e-43	151
+contig-100_5097	39492157077e514a477079ec20dcadc9_[description=narG_ontology=SS24376_source=m5nr]	85.8	113	14	1	1	339	1048	1158	9.67e-64	211
+contig-100_5147	575609.HMPREF0629_00458_[description=nosZ_homolog_ontology=COG0542_source=eggNOG]	69.2	104	32	0	12	323	48	151	6.66e-50	161
+contig-100_5815	206891071_[description=nmo_homolog_ontology=COG0517_source=COG]	61.0	105	41	0	1	315	361	465	1.70e-33	122
+contig-100_5854	351605.Gura_3955_[description=nosZ_homolog_ontology=COG0542_source=eggNOG]	69.2	104	32	0	3	314	221	324	2.37e-45	157
+contig-100_5865	206900988_[description=nirS_homolog_ontology=COG0187_source=COG]	71.7	106	29	1	1	315	498	603	1.97e-42	148
+contig-100_6117	A0A1A9GPT2	86.4	103	13	1	306	1	822	924	2.15e-51	175

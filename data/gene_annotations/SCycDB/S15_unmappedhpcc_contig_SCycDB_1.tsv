@@ -1,0 +1,11 @@
+# DIAMOND v2.0.14. http://github.com/bbuchfink/diamond
+# Invocation: diamond blastx -d /data/dragonen/01.Active_Projects/2024.Subglacial_Precip/databases/diamond/SCycDB_2020Mar_2 -q S15_unmappedhpcc_contig.fa -o S15_unmappedhpcc_contig_SCycDB_1.tsv -k 1 -e 0.00000000001 --query-cover 80 --id 60 --outfmt 6 --header
+# Fields: Query ID, Subject ID, Percentage of identical matches, Alignment length, Number of mismatches, Number of gap openings, Start of alignment in query, End of alignment in query, Start of alignment in subject, End of alignment in subject, Expected value, Bit score
+contig-100_43	WP_002465372.1_[gene=betA,souce=NCBI_bacteria_refseq]	100	206	0	0	2	619	96	301	2.96e-151	434
+contig-100_198	1194526.A284_11090_[description=cysK_ontology=COG0031_source=eggNOG]	100	138	0	0	3	416	155	292	4.69e-95	278
+contig-100_293	224324.aq_2103_[description=prpE_ontology=COG0365_source=eggNOG]	60.3	126	50	0	379	2	10	135	3.99e-45	145
+contig-100_379	WP_089411703.1_[gene=metC,souce=NCBI_bacteria_refseq]	61.2	116	45	0	3	350	32	147	1.55e-46	149
+contig-100_409	1385512.N784_10315_[description=glpE_ontology=COG0607_source=eggNOG]	65.8	114	37	1	342	1	110	221	8.04e-51	169
+contig-100_418	WP_113386635.1_[gene=cysE,souce=NCBI_bacteria_refseq]	74.5	110	28	0	1	330	389	498	5.96e-54	181
+contig-100_424	1236514.BAKL01000027_gene2516_[description=prpE_ontology=COG0365_source=eggNOG]	62.6	99	35	1	1	291	98	196	2.43e-35	122
+contig-100_602	1194526.A284_11090_[description=cysK_ontology=COG0031_source=eggNOG]	99.0	100	1	0	2	301	43	142	6.25e-62	192
