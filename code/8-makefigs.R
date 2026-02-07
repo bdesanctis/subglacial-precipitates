@@ -1,7 +1,11 @@
 
 ###################### Subglacial precipitates figure making code
+
 # Bianca De Sanctis
+# bddesanctis@gmail.com
 # Sep 2025
+# This R code makes all of the main plots and most of the supplement plots for the paper,
+#   and takes as input only text and excel files available on the github. 
 
 library(readxl)
 library(ggplot2)
@@ -27,32 +31,36 @@ library(data.table)
 library(RColorBrewer)
 library(data.table)
 
-setwd("/Users/bianca/Dropbox/Documents/academic/postdoc_ucsc/subglacial/")
-metadata = read_excel("metadata/subglacial_metadata_300325_AH_BDS.xlsx")
-new = read.table("~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/bamdam-gtdb/gtdb226/combined/all_min50reads.tsv",
-								 header = TRUE, sep="\t")
+##################### Get all the input ######################
 
-decontamination_df = read.table("~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/bamdam-gtdb/gtdb226/line_counts/alllinecounts.txt",header=TRUE)
+# set this to the metadata sheet in the supplement of the paper
+metadata = read_excel("metadata.xlsx") 
 
-oxymetag = read.table("~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/from-cliff/oxymetag_results.csv",sep=",",header=TRUE)
+# this is available on the github here https://github.com/bdesanctis/subglacial-precipitates/blob/main/data/all_min50reads.tsv
+new = read.table("all_min50reads.tsv",header = TRUE, sep="\t")
 
-existing_oxygen_tolerances = read_excel("~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/cluster-genomespot-for-john/SLM-SLW-BFB-OxTol.xlsx")
+# this is available on the github here https://github.com/bdesanctis/subglacial-precipitates/blob/main/data/alllinecounts.txt
+decontamination_df = read.table("alllinecounts.txt",header=TRUE)
 
-geochem_file = "~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/from-terry/Literature_FeMn_data_summary.xlsx"
+# https://github.com/bdesanctis/subglacial-precipitates/blob/main/data/oxymetag_results.csv
+oxymetag = read.table("oxymetag_results.csv",sep=",",header=TRUE)
+
+# https://github.com/bdesanctis/subglacial-precipitates/blob/main/data/SLM-SLW-BFB-OxTol.xlsx
+existing_oxygen_tolerances = read_excel("SLM-SLW-BFB-OxTol.xlsx")
+
+# https://github.com/bdesanctis/subglacial-precipitates/blob/main/data/Literature_FeMn_data_summary.xlsx
+geochem_file = "Literature_FeMn_data_summary.xlsx"
 all_geochem_sheets <- lapply(excel_sheets(geochem_file), function(s) {
 	read_excel(geochem_file, sheet = s)
 })
 names(all_geochem_sheets) <- excel_sheets(geochem_file)
 
-barnaby_grab = read.table("~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/from-terry/BR_interpolated.txt",
-													header=TRUE,sep="\t")
-
-cog_freq <- read.table("~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/mags/MAG_Annotations/Subglacial_COG20_CATEGORY-FREQUENCY.txt", header = TRUE, sep = "\t",quote = "",check.names = FALSE)
-
+# https://github.com/bdesanctis/subglacial-precipitates/blob/main/data/BR_interpolated.txt
+barnaby_grab = read.table("from-terry/BR_interpolated.txt",header=TRUE,sep="\t")
 
 ###################### Set up  ######################
 
-# process metadata; assign colours (will we use these??)
+# process metadata; assign colours
 
 small_metadata <- na.omit(data.frame(
 	Sample = metadata$`Paper code`,
@@ -87,16 +95,11 @@ total_assigned_reads_per_sample = colSums(new[grep("p__",new$TaxName),grep("_Tot
 # blood falls: Latitude: -77° 42' 59.99" S  , Longitude: 162° 15' 60.00" E
 # whillans Coordinates	84°15′S 153°30′W
 # mercer Coordinates	84.661°S 149.677°W
-
-
-# blood falls: Latitude: -77° 42' 59.99" S  , Longitude: 162° 15' 60.00" E
-# whillans Coordinates	84°15′S 153°30′W
-# mercer Coordinates	84.661°S 149.677°W
 # pull out the lat long of everything with a numeric lat long and with a filename
 md_samples = data.frame(metadata[which(!is.na(metadata$Filename)),
 																 which(colnames(metadata) %in% c("Approx age (ka)","Filename","Lat","Lon","GeoCluster","Paper code"))])
 # set up data 
-controls = c("S34","S35","S14","S28","S29")
+controls = c(""NC1","NC2","NC3","NC4","NC5","NC6","NC7")
 samples_to_map = md_samples[! md_samples$Filename %in% controls,]
 colnames(samples_to_map)[1] = "Age"
 all_ages = as.numeric(samples_to_map$Age[!is.na(samples_to_map$Age)])
@@ -322,10 +325,8 @@ damageplot = ggplot() +
 		title = "Most abundant genera, ordered by increasing median damage")
 
 
-#damageplot
+# damageplot
 
-# okay, no, this is not good. i need to go back and start from new, because otherwise i'm throwing away everything with less than 200 reads. lol. maybe 100 would be fine, or 50. 
-# keep_taxa <- levels(long_data$TaxName)[-(1:16)]
 keep_taxa <- levels(long_data$TaxName)
 original_data <- new %>%
 	filter(TaxName %in% keep_taxa)
@@ -564,13 +565,6 @@ plot_increasing_mean_damage(tax_level, pad_tax_path, readcutoff, minreads, minre
 
 ###################### Fig 4 part 1. Clustering using top classes ###################### 
 
-# ok so in the paper, to frame this, first go through the genera :) then say in many cases the entire phyla was just one genera (see krona plots)
-# but in some cases you can't get down to genus level
-# but you can seemingly always get down to class level, and the classes do the same split, so we will use them
-# but we can't go up to phyla without losing resolution too much; eg some chloroflexota are modern and some are ancient
-# Minisyncoccia and Patescibacteriia is a good example of this, as is Dehalococcoidia, and thermodesulfovibrionia (damaged classes in otherwise modern ish phyla, can get to class but not defined by a single group underneath)
-# you are giving up nanopelagis and polaromonas at class level. and surf 13. you have to make some decision at some point though. 
-
 # explicitly write out everything to the right of the positive control on the class x damage figure
 top_classes = c("c__Anaerolineae","c__JS1","c__Minisyncoccia","c__Phycisphaerae","c__Dehalococcoidia","c__Humimicrobiia",
 								"c__UBA8468","c__Patescibacteriia","c__Thermodesulfovibrionia","c__Nanobdellia","c__Nitrospiria","c__Methanosarcinia",
@@ -705,25 +699,6 @@ cpropsubg_long <- cpropsubg_long %>%
 											 paste0(phylum, " : ", gsub("^c__", "", Taxa)))) %>%
 	select(-phylum)
 
-#  old palette
-#palette <- c("white","royalblue3","#7AAF97","#4B1D91","#8E0F9C","turquoise",
-#						 "#1F78B4","cornflowerblue","lightgreen","hotpink","maroon",
-#						 "#FFB200","darkorchid1","red","yellow","#D7BFE3","pink",
-#						 "salmon","deepskyblue","#009593","maroon","white")
-
-#palette <- c("white","maroon","salmon","#4B1D91","#8E0F9C","pink",
-#						 "#009593","turquoise","lightgreen","hotpink","#7AAF97",
-#						 "#FFB200","darkorchid1","red","yellow","#D7BFE3","lightblue",
-#						 "deepskyblue","#CC5500","#1F78B4","deepskyblue","white")
-
-
-
-# #
-#palette <- c("white","darkgreen","#85C285","#4B1D91","#8E0F9C","pink","#018571",
-#						 "darkslategrey","salmon","hotpink","#CC5500",
-#						 "#FFB200","#DD00FF","red","yellow","#D7BFE3","lightblue",
-#						 "deepskyblue","#8EE53F","#1F78B4","deepskyblue","white")
-#ffecb3
 
 palette <- c("white","darkgreen","#85C285","#8E0F9C","#BF3EFF","pink","#018571",
 						 "darkslategrey","#CC5500","hotpink","#CDDC39",
@@ -746,24 +721,6 @@ props
 
 site_nmds_ancient / props   + plot_layout(heights = c(1, 2.5))
 
-
-# write info for just the classes
-#write.table(classsubg,"~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/results/per-sample-subglacial-class-all-info.txt",
-#						quote=FALSE,row.names=TRUE)
-#write.table(cpropsubg,"~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/results/per-sample-subglacial-class-only-renormalized-proportions.txt",
-#						quote=FALSE,row.names=TRUE)
-# write info for the classes and all the nodes underneath
-#write.table(subg,"~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/results/per-sample-subglacial-class-and-under-all-info.txt",
-#						quote=FALSE,row.names=TRUE,sep="\t")
-#write.table(propsubg,"~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/results/per-sample-subglacial-class-and-under-renormalized-proportions.txt",
-#						quote=FALSE,row.names=TRUE)
-# write nmds results
-#write.table(species_scores,"~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/results/per-taxa-subglacial-nmds-loadings-class-and-under.txt",
-#						quote=FALSE,row.names=TRUE)
-#write.table(nmds_df,"~/Dropbox/Documents/academic/postdoc_ucsc/subglacial-paper/results/per-sample-subglacial-nmds-loadings.txt",
-#						quote=FALSE,row.names=TRUE)
-
-
 # now plot cliff's stuff
 green_colour <- "#8FBE5C"
 purple_colour <- "#7766FF"
@@ -778,15 +735,6 @@ oxyplot = ggplot(plot_df, aes(x = MDS1, y = Per_aerobe, label = Label, color = C
 #	geom_text_repel(size = 3, color = "black", max.overlaps = 100) +
 	theme_bw() +
 	labs(x = "MDS1", y = "Predicted aerobes (%)", title="(B) Predicted percent of aerobes")
-
-
-#site_nmds_ancient / oxyplot / props   + plot_layout(heights = c(1, 1, 2))
-
-
-
-#site_nmds_ancient / ( oxyplot + oxyplot)
-
-
 
 
 
@@ -831,14 +779,11 @@ mercer_abundant_genera <- list(
 	"g__UBA1550",
 	"g__Nitrosarchaeum"
 )
-
 # also these above genus level:
 #	"f__Nanopelagicaceae",  
 #	"f__Burkholderiaceae",  
 #	"f__GW2011-AR1"
 
-
-# i think it is not worth taking the phyla...
 #mercer_abundant_phyla <- list(
 #	"p__Actinobacteriota",
 #	"p__Proteobacteria",
@@ -944,12 +889,6 @@ bloodfalls_taxa <- c("g__Lutibacter","g__Poriferisocius","f__Xanthomonadaceae","
 										 "o__Flavobacteriales", "p__Atribacterota")
 
 
-# how much of each is in our data?
-# now i want to look through new$TaxName for each of them 
-# if it's not found, it's a 0 for all of my samples
-# if it is found, pull out the read number 
-# i should probably compare to ABUNDANCES in our data. 
-
 extract_taxa_abundance <- function(data, taxa_list, total_reads) {
 	sample_cols <- grep("_TotalReads$", colnames(data), value = TRUE)
 	sample_names <- gsub("_TotalReads$", "", sample_cols)
@@ -980,7 +919,6 @@ extract_taxa_abundance <- function(data, taxa_list, total_reads) {
 }
 
 # colour palettes for each group
-# reds <- c("white", colorRampPalette(brewer.pal(5, "Reds"))(5))
 reds <- c("white", "#EE8E8E", "#D95C5C", "#8B0000", "#5A0000", "black")
 purple_blues <- c("white", "#F0E6FF", "#B399FF", "#7766FF", "#5544CC", "#3D2D99")
 greens <- c("white",   "#8FBE5C", "#6B9E3E", "#1B5E20","#1C5F2F","black")
@@ -1201,7 +1139,6 @@ source_colors <- source_mn_avg %>%
 			color_group == "cool" & row_number() == 4 ~ "#E8B8C8",  # Wang et al. 2020
 			color_group == "cool" & row_number() == 5 ~ "#E8A87C",  # Kusturica et al. 2022
 			color_group == "warm" & row_number() == 6 ~ "#A0B5C8",  # Green et al. 2015
-#			color_group == "warm" & row_number() == 7 ~ "#B5D4C5",  # Chen et al. 2021
 			color_group == "warm" & row_number() == 7 ~ "#A0E6E1",  # Drake et al. 2017
 			color_group == "warm" & row_number() == 8 ~ "#7FCBD0",  # Yuguchi et al. 2022
 			color_group == "warm" & row_number() == 9 ~ "#74C69D", # Earthchem
@@ -1367,352 +1304,6 @@ print(p)
 
 
 
-
-###################### Supplementary figure: Gene annotations ###############################
-rows_list <- list()
-
-folder_path <- "/Users/bianca/Dropbox/Documents/academic/postdoc_ucsc/subglacial/data/pathway_analysis_300325_from_nick/OneDrive_1_3-30-2025/bianca_contig_damages"
-contig_files <- list.files(folder_path, pattern = "_contig_filtered\\.tsv$")
-
-for (contig_file in contig_files) {
-	sample_name <- gsub("_contig_filtered\\.tsv$", "", contig_file)
-	file_path <- file.path(folder_path, contig_file)
-	cf <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-	cf <- cf[-1, ]  
-	for (i in seq_len(nrow(cf))) {
-		row_data <- cf[i, ]
-		new_row <- data.frame(
-			sample = sample_name,
-			contig = row_data$TaxName,
-			contigreads = row_data$TotalReads,
-			damage = row_data$Damage.1,
-			stringsAsFactors = FALSE
-		)
-		rows_list[[length(rows_list) + 1]] <- new_row
-	}
-}
-
-contig_df <- do.call(rbind, rows_list)
-
-
-rows_list <- list()
-
-basepath <- "/Users/bianca/Dropbox/Documents/academic/postdoc_ucsc/subglacial/data/pathway_analysis_300325_from_nick/OneDrive_1_3-30-2025/"
-folderlist <- c("Carbon", "Fe_results", "Trace_gas_results", "greening_gene_results")
-
-for(folder in folderlist) {
-	folder_files <- list.files(paste0(basepath, folder), pattern = "*\\.tsv")
-	for(file in folder_files) {
-		file2 <- gsub(".tsv", "", gsub("_unmappedhpcc_contig_", " ", file))
-		splitit <- strsplit(file2, split = " ")[[1]]
-		sample <- splitit[1]
-		gene <- splitit[2]
-		if(sample == "S1_S2") { sample <- "S1andS2" }
-		code <- metadata$`Paper code`[grep(sample, metadata$Filename)]
-		subdf <- contig_df[contig_df$sample == sample, ]
-		filepath <- paste0(basepath, folder, "/", file)
-		openit <- read.table(filepath)
-		for(row in 1:nrow(openit)) {
-			contig <- openit$V1[row]
-			lookforit <- grep(contig, subdf$contig)
-			if(length(lookforit) > 0) {
-				damage <- subdf$damage[lookforit]
-				reads <- subdf$contigreads[lookforit]
-				new_row <- data.frame(sample = sample, code = code, contig = contig, damage = damage,
-															contigreads = reads, gene = gene, category = folder,
-															stringsAsFactors = FALSE)
-				if(!any(is.na(new_row))) {
-					rows_list[[length(rows_list) + 1]] <- new_row
-				}
-			}
-		}
-	}
-}
-
-# N, S, M cycles - different parsing
-basepath <- "/Users/bianca/Dropbox/Documents/academic/postdoc_ucsc/subglacial/data/pathway_analysis_300325_from_nick/OneDrive_1_3-30-2025/01.N_S_M/"
-folderlist <- c("MCycDB", "NCycDB", "SCycDB")
-
-for(folder in folderlist) {
-	folder_files <- list.files(paste0(basepath, folder), pattern = "*\\.tsv")
-	for(file in folder_files) {
-		file2 <- gsub(".tsv", "", gsub("_unmappedhpcc_contig_", " ", file))
-		splitit <- strsplit(file2, split = " ")[[1]]
-		sample <- splitit[1]
-		if(sample == "S1_S2") { sample <- "S1andS2" }
-		code <- metadata$`Paper code`[grep(sample, metadata$Filename)]
-		subdf <- contig_df[contig_df$sample == sample, ]
-		filepath <- paste0(basepath, folder, "/", file)
-		openit <- read.table(filepath)
-		for(row in 4:nrow(openit)) { # first 3 rows are comments
-			contig <- openit$V1[row]
-			temp <- openit$V2[row]
-			gene <- strsplit(strsplit(temp, split = "\\[")[[1]][2], split = "_")[[1]][1]
-			gene <- strsplit(gene, split = "=")[[1]][2]
-			gene <- strsplit(gene, split = ",")[[1]][1]
-			if(is.na(gene)) { gene <- temp }
-			lookforit <- grep(contig, subdf$contig)
-			if(length(lookforit) > 0) {
-				damage <- subdf$damage[lookforit]
-				reads <- subdf$contigreads[lookforit]
-				new_row <- data.frame(sample = sample, code = code, contig = contig, damage = damage,
-															contigreads = reads, gene = gene, category = folder,
-															stringsAsFactors = FALSE)
-				if(!any(is.na(new_row))) {
-					rows_list[[length(rows_list) + 1]] <- new_row
-				}
-			}
-		}
-	}
-}
-
-category_contig_df <- do.call(rbind, rows_list)
-category_contig_df <- category_contig_df[category_contig_df$contigreads >= 50, ]
-
-
-rows_list <- list()
-
-basepath <- "/Users/bianca/Dropbox/Documents/academic/postdoc_ucsc/subglacial/data/all_read_length_damage_annotations/all_read_length_damage_annotations"
-folderbase <- "eggnog"
-
-folder_files <- list.files(basepath, pattern = "*annotations.txt")
-for(file in folder_files) {
-	print(file)
-	file2 <- gsub("_reads_length_damage_annotations.txt", "", file)
-	splitit <- strsplit(file2, split = " ")[[1]]
-	sample <- splitit[1]
-	if(sample == "S1_S2") { sample <- "S1andS2" }
-	code <- metadata$`Paper code`[grep(sample, metadata$Filename)]
-	subdf <- contig_df[contig_df$sample == sample, ]
-	filepath <- paste0(basepath, "/", file)
-	
-	openit_dt <- fread(
-		filepath,
-		sep = "\t",
-		quote = "",
-		header = TRUE
-	)
-	openit <- as.data.frame(openit_dt)
-	
-	for(row in 1:nrow(openit)) { 
-		contig <- openit$CDSqueryname[row]
-		gene <- openit$Preferred_name[row]
-		cog <- openit$COG_category[row]
-		keggko <- openit$KEGG_ko[row]
-		keggpathway <- openit$KEGG_Pathway[row]
-		keggmodule <- openit$KEGG_Module[row]
-		go <- openit$GOs[row]
-		if(!is.na(gene) & gene != "-") {
-			category <- paste0(folderbase, "_", cog)
-			damage <- openit$"Damage+1"[row]
-			cdsreads <- openit$MappedReadstoCDS[row]
-			cdslength <- openit$CDSLength[row]
-			contigreads <- openit$MappedReadstoParentContig[row]
-			new_row <- data.frame(sample = sample, code = code, contig = contig, damage = damage,
-														cdsreads = cdsreads, cdslength = cdslength, contigreads = contigreads, 
-														gene = gene, category = category, 
-														go = go, cog = cog, keggko = keggko, 
-														keggpathway = keggpathway, keggmodule = keggmodule,
-														stringsAsFactors = FALSE)	
-			rows_list[[length(rows_list) + 1]] <- new_row
-		}
-	}
-}
-
-all_function_df <- do.call(rbind, rows_list) %>%
-	filter(grepl("^\\d+(\\.\\d+)?$", cdsreads)) %>%
-	mutate(cdsreads = as.numeric(cdsreads))
-
-# Normalize
-all_function_df$sample_count <- ave(all_function_df$sample, all_function_df$sample, FUN = length)
-all_function_df$cdsreads <- as.numeric(all_function_df$cdsreads)
-all_function_df$cdslength <- as.numeric(all_function_df$cdslength)
-all_function_df$sample_count <- as.numeric(all_function_df$sample_count)
-all_function_df$normalized <- ifelse(
-	all_function_df$cdsreads > 0,
-	all_function_df$cdsreads / (all_function_df$cdslength * all_function_df$sample_count),
-	0
-)
-
-function_df <- all_function_df
-function_df$category[grepl("eggnog", function_df$category)] <- "eggnog"
-
-# Filter
-function_df <- function_df[function_df$contigreads >= 100, ]
-
-# Calculate mean gene damage
-function_df <- function_df %>%
-	group_by(gene) %>%
-	mutate(mean_gene_damage = mean(damage, na.rm = TRUE)) %>%
-	ungroup()
-
-
-
-# Get PC1 eggNOG damage values for density background
-pc1_eggnog_damage <- function_df %>%
-	filter(code == "PC1", category == "eggnog") %>%
-	pull(damage)
-
-# Calculate density once for all plots
-dens <- density(pc1_eggnog_damage, na.rm = TRUE)
-pc1_density_df <- data.frame(
-	density = dens$y,
-	damage = dens$x
-)
-
-# Function to make pretty plot for each category
-make_damage_plot <- function(cat_name, data) {
-	
-	collapsed_df <- data %>%
-		filter(category == cat_name) %>%
-		filter(!grepl("^uniprot", gene)) %>%
-		filter(!grepl("^A0", gene)) %>%
-		group_by(gene, code) %>%
-		summarize(damage = mean(damage, na.rm = TRUE), .groups = "drop")
-	
-	# Keep only genes in >1 sample
-	gene_counts <- collapsed_df %>%
-		group_by(gene) %>%
-		summarize(n_samples = n_distinct(code)) %>%
-		filter(n_samples > 1)
-	
-	collapsed_df <- collapsed_df %>%
-		filter(gene %in% gene_counts$gene)
-	
-	# Order by median damage
-	gene_order <- collapsed_df %>%
-		group_by(gene) %>%
-		summarize(median_damage = median(damage, na.rm = TRUE)) %>%
-		arrange(median_damage) %>%
-		mutate(gene = factor(gene, levels = gene))
-	
-	collapsed_df <- collapsed_df %>%
-		left_join(gene_order, by = "gene") %>%
-		mutate(gene = factor(gene, levels = gene_order$gene))
-	
-	# Check if PC1 present
-	collapsed_df <- collapsed_df %>%
-		group_by(gene) %>%
-		mutate(has_PC1 = any(code == "PC1")) %>%
-		ungroup()
-	
-	# Get medians for line
-	medians_df <- gene_order %>%
-		mutate(x_pos = as.numeric(gene))
-	
-	# Expand PC1 density to all gene positions
-	n_genes <- length(levels(collapsed_df$gene))
-	all_genes <- levels(collapsed_df$gene)
-	
-	density_expanded <- expand.grid(
-		gene = all_genes,
-		damage = pc1_density_df$damage
-	) %>%
-		left_join(pc1_density_df, by = "damage") %>%
-		mutate(gene = factor(gene, levels = all_genes))
-	
-	ggplot(collapsed_df, aes(x = gene, y = damage)) +
-		# Vertical gridlines
-		geom_vline(
-			xintercept = seq_along(all_genes),
-			color = "gray85",
-			linewidth = 0.3,
-			alpha = 0.5
-		) +
-		# PC1 eggNOG density as background
-		geom_tile(data = density_expanded,
-							aes(x = gene, y = damage, alpha = density),
-							fill = "firebrick2",
-							inherit.aes = FALSE) +
-		scale_alpha_continuous(range = c(0, 0.3), guide = "none") +
-		# Boxplots
-		geom_boxplot(
-			data = filter(collapsed_df, code != "PC1"),
-			aes(x = gene, y = damage, fill = has_PC1),
-			outlier.shape = NA,
-			alpha = 0.5,
-			color = "gray70",
-			linewidth = 0.4,
-			width = 0.7
-		) +
-		# Points (non-PC1)
-		geom_point(
-			data = filter(collapsed_df, code != "PC1"),
-			aes(x = gene, y = damage),
-			color = "steelblue",
-			alpha = 0.5,
-			size = 2,
-			position = position_jitter(width = 0.25, seed = 42)
-		) +
-		# Labels for non-PC1
-		geom_text_repel(
-			data = filter(collapsed_df, code != "PC1"),
-			aes(x = gene, y = damage, label = code),
-			size = 2.5,
-			color = "gray20",
-			max.overlaps = 20,
-			seed = 42,
-			position = position_jitter(width = 0.25, seed = 42)
-		) +
-		# PC1 points
-		geom_point(
-			data = filter(collapsed_df, code == "PC1"),
-			aes(x = gene, y = damage),
-			color = "black",
-			size = 3.5,
-			alpha = 0.8,
-			shape = 21,
-			fill = "firebrick2",
-			stroke = 0.5
-		) +
-		# Labels for PC1
-		geom_text_repel(
-			data = filter(collapsed_df, code == "PC1"),
-			aes(x = gene, y = damage, label = code),
-			size = 2.5,
-			color = "firebrick4",
-			fontface = "bold",
-			max.overlaps = 20
-		) +
-		# Line connecting medians
-		geom_line(
-			data = medians_df,
-			aes(x = x_pos, y = median_damage, group = 1),
-			color = "#2C3E50",
-			linetype = "solid",
-			alpha = 0.8,
-			linewidth = 0.5
-		) +
-		scale_fill_manual(
-			values = c("TRUE" = "#F8F9FA", "FALSE" = "#F8F9FA")
-		) +
-		theme_minimal() +
-		theme(
-			axis.text.x = element_text(angle = 45, hjust = 1, size = 8, color = "gray30"),
-			axis.text.y = element_text(size = 10, color = "gray30"),
-			axis.title = element_text(size = 12, color = "gray20", face = "bold"),
-			panel.grid.major.x = element_blank(),
-			panel.grid.minor = element_blank(),
-			panel.grid.major.y = element_line(color = "gray90", linewidth = 0.5),
-			panel.background = element_rect(fill = "white", color = NA),
-			plot.background = element_rect(fill = "white", color = NA),
-			legend.position = "none"
-		) +
-		labs(
-			x = "Gene",
-			y = "5' C>T frequency",
-			title = paste0(cat_name, " genes ordered by increasing median damage")) +
-		ylim(0,0.6)
-}
-
-# Make plots for the three categories
-mcyc_plot <- make_damage_plot("MCycDB", category_contig_df)
-ncyc_plot <- make_damage_plot("NCycDB", category_contig_df)
-scyc_plot <- make_damage_plot("SCycDB", category_contig_df)
-
-# Display
-mcyc_plot + ncyc_plot + scyc_plot
-
-
+ 
 
 
