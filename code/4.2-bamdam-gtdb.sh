@@ -8,7 +8,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1 ## this is usually num threads if you want communication b/w threads
 #SBATCH --time=1:00:00
-#SBATCH --array=0-25 ##-25
+#SBATCH --array=0-25 # non control samples
 
 #! Number of nodes and tasks per node allocated by SLURM (do not change):
 numnodes=$SLURM_JOB_NUM_NODES
@@ -21,17 +21,15 @@ BAM_DIR="$BASE_DIR/bam-gtdb"
 LOG_DIR="$BASE_DIR/logs"
 ngslca="/private/groups/corbettlab/bianca/software/ngsLCA/ngsLCA"  # Correct path to ngslca
 bamdam="/private/groups/corbettlab/bianca/software/bamdam/bamdam"
-BAMDAM_DIR="$BASE_DIR/bamdam-gtdb-short"
+BAMDAM_DIR="$BASE_DIR/bamdam-gtdb"
 
 NAMES="/private/groups/corbettlab/bianca/databases/gtdb/names.dmp"
 NODES="/private/groups/corbettlab/bianca/databases/gtdb/nodes.dmp"
 ACC2TAX="/private/groups/corbettlab/bianca/databases/gtdb/gtdb.acc2tax"
 
 # Get the current sample ID
-sample_list=("S9" "S16" "S24" "S17" "S25" "S18" "S26" "S3" "S10" "S19" "S27" "S4andS5" "S11" "S1andS2" "S6andS7" "S12" "S20" "S30andS31" "S8" "S13" "S21" "S32" "S22" "S33" "S15" "S23")
-
+sample_list=("AIS1" "BV1" "BV2" "BV3" "EM1" "EM2" "EM3" "EM4" "LG1" "LG2" "LG3" "LG4" "LG5" "LG6" "LG7" "MA1" "MA2" "MBL1" "MBL2" "MV1" "MV2" "NC1" "NC2" "NC3" "NC4" "NC5" "NC6" "NC7" "PC1" "PM1" "PM2" "RM1" "RM2")
 SAMPLE_ID=${sample_list[$SLURM_ARRAY_TASK_ID]}
-
 
 # Define input and output file paths
 IN_LCA="$LCA_DIR/${SAMPLE_ID}.lca"
@@ -47,7 +45,6 @@ OUT_BAM_C="$BAMDAM_DIR/${SAMPLE_ID}_filtered_includecontroltax.bam"
 OUT_STATS_C="$BAMDAM_DIR/${SAMPLE_ID}_includecontroltax.tsv"
 OUT_SUBS_C="$BAMDAM_DIR/${SAMPLE_ID}.subs_includecontroltax.txt"
 
-
 $ngslca -fix-ncbi 0 \
   -names $NAMES \
   -nodes $NODES \
@@ -55,7 +52,6 @@ $ngslca -fix-ncbi 0 \
   -simscorelow 0.95 \
   -bam $IN_BAM \
   -outnames $LCA_DIR/${SAMPLE_ID}
-
 
 # Check if the input LCA and BAM files exist before running bamdam shrink
 if [ -f "$IN_LCA" ] && [ -f "$IN_BAM" ]; then
