@@ -1,6 +1,0 @@
-Github code readme 24/11/25, subglacial precipitates
-
-Everything with a number in front of it is a bash script that I ran on the UCSC server.
-
-The main figure making script, that reads in the files in data/, is makefigs.R. 
-
