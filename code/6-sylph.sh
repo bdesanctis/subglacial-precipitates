@@ -7,8 +7,10 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
 #SBATCH --time=10:00:00
-#SBATCH --array=1-29
+#SBATCH --array=1-32
 #SBATCH --output=sylph_%A_task_%a.out
+
+# Quick sylph job just to see what happens
 
 # Number of nodes and tasks per node allocated by SLURM
 numnodes=$SLURM_JOB_NUM_NODES
@@ -26,8 +28,6 @@ RESULTS_DIR="/private/groups/corbettlab/bianca/subglacial/sylph"
 SAMPLE_ID=$SLURM_ARRAY_TASK_ID
 FASTQ_FILE="S${SAMPLE_ID}_unmappedhpcc.fq"
 
-# Navigate to the PhyloFlash software directory
 cd $RESULTS_DIR
 
-# Run PhyloFlash with merged reads option
 $sylph profile $sylphdb ${FASTQ_DIR}/${FASTQ_FILE} -t 16 > ${RESULTS_DIR}/S${SAMPLE_ID}profile.tsv
