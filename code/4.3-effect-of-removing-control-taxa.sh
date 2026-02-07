@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# I ran the previous script 4.2 with and without removing the control taxa in the bamdam step. Here I calculate the consequences of that, for supplementary figure 2.
+
 # Directories for the two file sets
 DIR1="bamdam-gtdb"
 DIR2="bamdam-gtdb-with-control-taxa"
