@@ -57,7 +57,7 @@ emapper.py --itype CDS -i $contig_cds -o ${idba_out}/eggnog_output --override --
 
 
 echo "doing the mapping or read recruitment"
-# use bwa aln w/ params to remap reads against filtered contigs and fnas. i'm not totally sure which one i want to compute damage on, so just do it on both and figure it out later.
+# use bwa aln w/ params to remap reads against filtered contigs and fnas. compute damage on both.
 # the eggnog annotations are on the CDS files, but i think they contain the contig it came from, and it feels fair enough to me to compute damage on the whole contig, as it's one chunk.
 bwa index $filtered_contig
 mapped_bam="${idba_out}/mapped_to_contig_filtered.bam"
@@ -114,43 +114,5 @@ $bamdam compute --in_bam mapped_to_contig_filtered.bam --in_lca fake_filtered_co
 
 echo "Sample $SAMPLE_ID processing complete."
 
-############# break #############3
 
-# now we have to do the whole thing AGAIN against the CDS files in order to normalize them. 
-
-if [[ ! -f bd_contig_filtered.tsv ]]; then
-    echo "File does not exist, quitting."
-    exit 1
-fi
-
-bwa index $contig_cds
-mapped_bam_2="${idba_out}/mapped_to_contig_cds.bam"
-bwa aln -l 1024 -n 0.01 -o 2 $contig_cds $in_fq > aln_output_cds.sai
-bwa samse $contig_cds aln_output.sai $in_fq | samtools view -q 25 -b | samtools sort -n > $mapped_bam_2
-# count reads per contig
-samtools view -F 4 -q 25 $mapped_bam_2 | cut -f 3 | sort | uniq -c | awk '{print $2"\t"$1}' > contig_read_counts.txt
-
-# let's normalize on the filtered_contig level. won't this be better, not worse, for
-
-
-
-# how do all these things link together?
-# each row of the *.annotations file has a contig name at the front: contig-100_x_y. The contig-100_x part will match a row in the bamdam .tsv output.
-# then you need per-contig
-
-# contig_filtered.fa already contains the sequence lengths and read counts in the headers! very handy
-
-samtools view -F 4 -q 25 $mapped_bam_2 | cut -f 3 | sort | uniq -c | awk '{print $2"\t"$1}' > contig_read_counts.txt
-total_filtered_contig_reads=$(awk '{sum += $2} END {print sum}' contig_read_counts.txt)
-awk '/^>/ {split($0, a, " "); name=substr(a[1], 2); len=substr(a[2], 8); count=substr(a[3], 11); print name, count, len}' $contig_cds > contig_read_counts_lengths.txt
-awk '{gsub("_", "", $2); print $1, $2, $3}' contig_read_counts_lengths.txt > fixed_contig_read_counts_lengths.txt
-total_reads=$(awk '{sum += $2} END {print sum}' fixed_contig_read_counts_lengths.txt)
-
-awk -v total_reads=$total_reads '{
-    norm = ($2 / ($3 / 1000)) / total_reads;
-    print $1, $2, $3, norm;
-}' fixed_contig_read_counts_lengths.txt > contig_read_counts_lengths_normalized.txt
-# this file has four columns: contig name, readcount (from eggnog), contig length, and normalized rpkm
-# this is   (contig read count) / (contig length / 1000) / (total reads across all contigs)
-# effectively it is normalized rpkm
 
